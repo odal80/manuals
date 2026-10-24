@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>선교정밀 바이스홀더 조립설명서</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column, a printed instruction sheet laid on a workbench */
+:root{
+  --bg:#eef0f2; --sheet:#ffffff; --ink:#1b2128; --muted:#5d6874; --line:#d3d8de; --accent:#1f5fa8;
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15191e;--sheet:#f4f5f6;--ink:#e7eaee;--muted:#9aa5b1;--line:#2c333b;--accent:#7fb1ec;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15191e;--sheet:#f4f5f6;--ink:#e7eaee;--muted:#9aa5b1;--line:#2c333b;--accent:#7fb1ec;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 40px}
+.wrap{max-width:860px;margin:0 auto;display:grid;gap:20px}
+header{display:grid;gap:6px}
+.code{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{margin:0;font-size:clamp(24px,5vw,34px);font-weight:700;line-height:1.25;text-wrap:balance}
+.meta{color:var(--muted);font-size:14px;margin:0}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:12px;overflow:hidden}
+.sheet img{display:block;width:100%;height:auto}
+.tips{display:grid;gap:4px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.tips b{color:var(--ink);font-weight:600}
+footer{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+</style>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="code">Assembly guide · 11 steps</span>
+    <h1>선교정밀 바이스홀더</h1>
+    <p class="meta">그림 순서(①→⑪)대로 조립하세요. 화면을 두 손가락으로 벌리면 확대할 수 있어요.</p>
+  </header>
+  <div class="sheet">
+    <img src="manual.png" alt="선교정밀 바이스홀더 조립설명서, 1번부터 11번까지 단계별 그림" width="1800" height="2546">
+  </div>
+  <div class="tips">
+    <span><b>①–③</b> 베이스에 손잡이 볼트를 끼우고 회전판과 고정 블록을 올립니다.</span>
+    <span><b>④–⑦</b> 바이스 몸체에 가이드를 넣고 조임 볼트를 끼운 뒤, 회전판 위에 얹습니다.</span>
+    <span><b>⑧–⑪</b> 나사 2개로 고정하고 조(jaw) 부품을 끼우면 완성입니다.</span>
+  </div>
+  <footer>SUNGYO PRECISION · VISE HOLDER</footer>
+</div>
+</body>
+</html>
