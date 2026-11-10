@@ -1,0 +1,44 @@
+name: Drive to Slack notifier
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # every hour (UTC); runs may be delayed by GitHub
+  workflow_dispatch: {}
+
+concurrency:
+  group: drive-slack-notify
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Check Drive and notify Slack
+        env:
+          GDRIVE_SA_JSON: ${{ secrets.GDRIVE_SA_JSON }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python scripts/drive_slack_notify.py
+
+      - name: Commit updated manifest
+        run: |
+          if [[ -n "$(git status --porcelain state/drive-manifest.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add state/drive-manifest.json
+            git commit -m "chore: update drive manifest [skip ci]"
+            git push
+          else
+            echo "No manifest changes to commit."
+          fi
